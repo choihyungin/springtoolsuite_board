@@ -37,6 +37,8 @@ public class UserController {
 
 	@PostMapping("/signin")
 	public String signinPost(@ModelAttribute User user) {
+		//findByEmailAndPwd에서 해당 요소는 반드시 User.java 안에 들어있어야 함. camel case
+		//findByEmailAndPwd는 UserRepository.java에 메소드를 만들어두어야 함.
 		User dbUser = userRepository.findByEmailAndPwd(user.getEmail(), user.getPwd());
 		if (dbUser != null) {
 		}
@@ -46,7 +48,7 @@ public class UserController {
 
 	@GetMapping("/signout")
 	public String signout() {
-		session.invalidate();
+		session.invalidate(); //요청을 보낸 client의 세션만 삭제됨
 		return "redirect:/";
 	}
 }

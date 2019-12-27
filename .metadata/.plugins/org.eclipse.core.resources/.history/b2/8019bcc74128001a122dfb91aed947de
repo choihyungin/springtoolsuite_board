@@ -1,0 +1,20 @@
+package com.example.board.controller;
+@Controller
+public class BoardController {
+@Autowired
+BoardRepository boardRepository;
+@Autowired
+HttpSession session;
+@GetMapping("/board/write")
+public String boardWrite() {
+return "board/write";
+}
+@PostMapping("/board/write")
+public String boardWritePost(@ModelAttribute Board board) {
+User user = (User) session.getAttribute("user_info");
+String userId = user.getEmail();
+board.setUserId(userId);
+boardRepository.save(board);
+return "board/write";
+}
+}

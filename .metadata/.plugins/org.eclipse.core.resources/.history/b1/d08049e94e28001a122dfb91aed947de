@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="jumbotron">
+		<div class="container text-center">
+			<div id="map" style="width: 500px; height: 400px; margin: 0 auto;"></div>
+		</div>
+	</div>
+</body>
+</html>

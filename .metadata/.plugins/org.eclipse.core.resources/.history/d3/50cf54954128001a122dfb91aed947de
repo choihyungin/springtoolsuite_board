@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+
+<head th:replace="common/head"></head>
+
+<body>
+
+	<nav th:replace="common/nav"></nav>
+
+	<div class="jumbotron">
+		<div class="container">
+			<h2>Sign In</h2>
+			<form action="/signin" method="POST">
+				<div class="form-group">
+					<label for="email">Email:</label> <input type="email"
+						class="form-control" id="email" placeholder="Enter email"
+						name="email">
+				</div>
+				<div class="form-group">
+					<label for="pwd">Password:</label> <input type="password"
+						class="form-control" id="pwd" placeholder="Enter password"
+						name="pwd">
+				</div>
+
+				<div class="checkbox">
+					<label><input type="checkbox" name="remember">
+						Remember me</label>
+				</div>
+				<button type="submit" id="signin" class="btn btn-default">Sign In</button>
+				<button type="submit" id="signup" class="btn btn-default">Sign Up</button>
+				
+			</form>
+		</div>
+
+
+		<script>
+			$("#signin").click(function() {
+				$("form").submit();
+				return false;
+			});
+			$("#signup").click(function() {
+				location="/signup";
+				return false;
+			});
+		</script>
+	</div>
+
+
+	<footer th:replace="common/footer"></footer>
+
+</body>
+</html>
